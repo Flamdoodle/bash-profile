@@ -60,3 +60,9 @@ alias boom='be rake db:drop; be rake db:create && be rake db:migrate'
 alias seed='be rake db:drop; be rake db:create && be rake db:migrate && rake db:seed'
 alias booms='be rake db:drop; be rake db:create && be rake db:migrate && rails s'
 alias seeds=alias booms='be rake db:drop; be rake db:create && be rake db:migrate && rake db:seed && rails s'
+
+# Opens bash profile
+alias bp='subl ~/.bash_profile'
+
+# Creates regenerating Jekyll server
+alias js='jekyll serve --watch'
