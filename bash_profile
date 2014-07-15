@@ -76,3 +76,6 @@ parse_git_branch() { git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+# Some aliases for great purpose!
+alias desk='cd ~/Desktop'
+alias ls='ls -GFh'
