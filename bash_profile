@@ -3,8 +3,7 @@ export PATH=/usr/local/bin:$PATH
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-### BELOW THIS LINE ARE EXPERIMENTS MADE ON JULY 11
-### Look at http://alias.sh/ for more
+### Look at http://alias.sh/ for more fun things like this
 
 # For rubby development
 which -s bundle && alias be="bundle exec"
@@ -81,3 +80,7 @@ alias desk='cd ~/Desktop'
 alias ls='ls -GFh'
 alias code='cd ~/Documents/Projects'
 alias reload='source ~/.bash_profile'
+
+# Case insensitive tabbing
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
