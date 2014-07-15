@@ -79,3 +79,5 @@ fi
 # Some aliases for great purpose!
 alias desk='cd ~/Desktop'
 alias ls='ls -GFh'
+alias code='cd ~/Documents/Projects'
+alias reload='source ~/.bash_profile'
