@@ -66,3 +66,6 @@ alias bp='subl ~/.bash_profile'
 
 # Creates regenerating Jekyll server
 alias js='jekyll serve --watch'
+
+# Shows name (in cyan), current working directory (in green), current branch (in pink)
+PS1='\[\e[1;96m\]\u: \[\e[0;32m\]\W \[\033[00m\]$(git branch &>/dev/null; if [ $? -eq 0 ]; then echo "\[\e[0;35m\][$(git branch | grep ^*|sed s/\*\ //)] \[\033[00m\]"; fi)>> '
