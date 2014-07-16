@@ -33,7 +33,7 @@ alias gb='git branch'
 alias gpum='git pull origin master'
 alias gpuo='git pull origin'
 function publish() {
-  gbranch='git branch'
+  gbranch="`git branch &>/dev/null`"
   git push origin $gbranch
 }
 
