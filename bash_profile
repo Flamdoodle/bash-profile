@@ -8,32 +8,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # For rubby development
 which -s bundle && alias be="bundle exec"
 
-# Open GitHub webpage of current git repo
-function github() {
-  local github_url
+# Open github web page of current git repo
+alias github="open https://github.$(git config remote.origin.url | cut -f2 -d.)"
 
-  if ! git remote -v >/dev/null; then
-    return 1
-  fi
-
-  # get remotes for fetch
-  github_url="`git remote -v | grep github\.com | grep \(fetch\)$`"
-
-  if [ -z "$github_url" ]; then
-    echo "A GitHub remote was not found for this repository."
-    return 1
-  fi
-
-  # look for origin in remotes, use that if found, otherwise use first result
-  if [ "echo $github_url | grep '^origin' >/dev/null 2>&1" ]; then
-    github_url="`echo $github_url | grep '^origin'`"
-  else
-    github_url="`echo $github_url | head -n1`"
-  fi
-
-  github_url="`echo $github_url | awk '{ print $2 }' | sed 's/git@github\.com:/http:\/\/github\.com\//g'`"
-  open $github_url
-}
 # Make and cd into a directory
 function mcd() {
   mkdir -p "$1" && cd "$1";
@@ -53,6 +30,12 @@ alias gpo='git push origin'
 alias gp='git push'
 alias gph='git push heroku master'
 alias gb='git branch'
+alias gpum='git pull origin master'
+alias gpuo='git pull origin'
+function publish() {
+  gbranch='git branch'
+  git push origin $gbranch
+}
 
 # Some tests with database commands in development
 alias boom='be rake db:drop; be rake db:create && be rake db:migrate'
@@ -75,11 +58,13 @@ parse_git_branch() { git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
 # Some aliases for great purpose!
 alias desk='cd ~/Desktop'
 alias ls='ls -GFh'
 alias code='cd ~/Documents/Projects'
 alias reload='source ~/.bash_profile'
+alias f='open -a Finder ./'                 # Opens current directory in MacOS Finder
 
 # Case insensitive tabbing
 bind "set completion-ignore-case on"
