@@ -36,6 +36,7 @@ function publish() {
   gbranch="`git branch &>/dev/null`"
   git push origin $gbranch
 }
+alias gac='git add . && git commit -vm'
 
 # Some tests with database commands in development
 alias boom='be rake db:drop; be rake db:create && be rake db:migrate'
