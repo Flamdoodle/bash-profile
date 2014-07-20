@@ -78,10 +78,12 @@ alias js='jekyll serve --watch'
 PS1='\[\e[1;96m\]\u: \[\e[0;32m\]\W \[\033[00m\]$(git branch &>/dev/null; if [ $? -eq 0 ]; then echo "\[\e[0;35m\][$(git branch | grep ^*|sed s/\*\ //)] \[\033[00m\]"; fi)>> '
 
 # grab git branch & branch autocomplete
-parse_git_branch() { git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'; }
+# link to blog post helping with this: http://buddylindsey.com/adding-git-autocomplete-to-bash-on-os-x/
 
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
+# if curl command doesn't work, just go to url given and manually create and save file
+
+if [ -f ~/git-completion.bash ]; then
+  . ~/git-completion.bash
 fi
 
 # Some aliases for great purpose!
