@@ -52,7 +52,7 @@ alias gco='git checkout'
 alias gcom='git checkout master'
 alias gpo='git push origin'
 alias gp='git push'
-alias gph='git push heroku master'
+alias gph='git checkout master && git push heroku master'
 alias gb='git branch'
 alias gpum='git pull origin master'
 alias gpuo='git pull origin'
@@ -61,6 +61,7 @@ function publish() {
   git push origin $gbranch
 }
 alias gac='git add . && git commit -vm'
+alias gd='git diff'
 
 # Some tests with database commands in development
 alias boom='be rake db:drop; be rake db:create && be rake db:migrate'
@@ -84,6 +85,12 @@ PS1='\[\e[1;96m\]\u: \[\e[0;32m\]\W \[\033[00m\]$(git branch &>/dev/null; if [ $
 
 if [ -f ~/git-completion.bash ]; then
   . ~/git-completion.bash
+fi
+
+# Allows use with aliases(?)
+# Guide: https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
 fi
 
 # Some aliases for great purpose!
