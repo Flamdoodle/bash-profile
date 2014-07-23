@@ -62,6 +62,7 @@ function publish() {
 }
 alias gac='git add . && git commit -vm'
 alias gd='git diff'
+alias gpud='git pull origin development'
 
 # Some tests with database commands in development
 alias boom='be rake db:drop; be rake db:create && be rake db:migrate'
@@ -71,6 +72,9 @@ alias seeds='be rake db:drop; be rake db:create && be rake db:migrate && rake db
 
 # Opens bash profile
 alias bp='subl ~/.bash_profile'
+
+# Opens .gitconfig
+alias gf='subl ~/.gitconfig'
 
 # Creates regenerating Jekyll server
 alias js='jekyll serve --watch'
