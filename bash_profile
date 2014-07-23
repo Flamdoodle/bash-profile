@@ -1,3 +1,5 @@
+# Awesome website for shell scripts: http://explainshell.com/
+
 export PATH=/usr/local/bin:$PATH
 
 ### Added by the Heroku Toolbelt
@@ -125,7 +127,6 @@ function parse_git_dirty() {
 function parse_git_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
-
 
 # Some aliases for great purpose!
 alias desk='cd ~/Desktop'
