@@ -70,6 +70,27 @@ alias seed='be rake db:drop; be rake db:create && be rake db:migrate && rake db:
 alias booms='be rake db:drop; be rake db:create && be rake db:migrate && rails s'
 alias seeds='be rake db:drop; be rake db:create && be rake db:migrate && rake db:seed && rails s'
 
+# Clones a repo and CDs into it. From: https://github.com/stephenplusplus/dots/blob/master/.bash_profile
+function clone {
+  local url=$1;
+  local repo=$2;
+
+  if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]
+  then
+    # just clone this thing.
+    repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
+  elif [[ -z $repo ]]
+  then
+    # my own stuff.
+    repo=$url;
+    url="git@github.com:flamdoodle/$repo";
+  else
+    # not my own, but I know whose it is.
+    url="git@github.com:$url/$repo.git";
+  fi
+
+  git clone $url $repo && cd $repo && subl .;
+}
 # Opens bash profile
 alias bp='subl ~/.bash_profile'
 
@@ -96,6 +117,15 @@ fi
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
+
+# Git branch details
+function parse_git_dirty() {
+  [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
+}
+function parse_git_branch() {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+}
+
 
 # Some aliases for great purpose!
 alias desk='cd ~/Desktop'
