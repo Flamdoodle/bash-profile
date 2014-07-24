@@ -91,7 +91,7 @@ function clone {
     url="git@github.com:$url/$repo.git";
   fi
 
-  git clone $url $repo && cd $repo && subl .;
+  git clone $url $repo && cd $repo && subl . && bundle install;
 }
 # Opens bash profile
 alias bp='subl ~/.bash_profile'
@@ -134,6 +134,7 @@ alias ls='ls -GFh'
 alias code='cd ~/Documents/Projects'
 alias reload='source ~/.bash_profile'
 alias f='open -a Finder ./'                 # Opens current directory in MacOS Finder
+alias b='bundle install'
 
 # Case insensitive tabbing
 bind "set completion-ignore-case on"
