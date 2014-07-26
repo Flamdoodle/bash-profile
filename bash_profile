@@ -135,6 +135,13 @@ alias code='cd ~/Documents/Projects'
 alias reload='source ~/.bash_profile'
 alias f='open -a Finder ./'                 # Opens current directory in MacOS Finder
 alias b='bundle install'
+alias cd..='cd ../'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+alias .......='cd ../../../../../../'
 
 # Case insensitive tabbing
 bind "set completion-ignore-case on"
