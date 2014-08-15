@@ -10,8 +10,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # For rubby development
 which -s bundle && alias be="bundle exec"
 
-# Open github web page of current git repo
-function openhub() {
+# Open github web page of current git repo ... broken again
+function chromehub() {
   local github_url
 
   if ! git remote -v >/dev/null; then
@@ -132,6 +132,10 @@ function parse_git_branch() {
 alias desk='cd ~/Desktop'
 alias ls='ls -GFh'
 alias code='cd ~/Documents/Projects'
+alias smart='cd ~/Documents/Projects/smartipants && subl .'
+alias whats='cd ~/Documents/Projects/whats-this-2.0 && subl .'
+alias bashp='cd ~/Documents/Projects/bash_profile && subl bash_profile'
+alias blog='cd ~/Documents/Projects/flamdoodle_blog && subl .'
 alias reload='source ~/.bash_profile'
 alias f='open -a Finder ./'                 # Opens current directory in MacOS Finder
 alias b='bundle install'
