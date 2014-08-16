@@ -72,6 +72,11 @@ alias seed='be rake db:drop; be rake db:create && be rake db:migrate && rake db:
 alias booms='be rake db:drop; be rake db:create && be rake db:migrate && rails s'
 alias seeds='be rake db:drop; be rake db:create && be rake db:migrate && rake db:seed && rails s'
 
+# Some aliases for rails common commands
+alias s='rails server'
+alias c='rails console'
+alias r='rake routes'
+
 # Clones a repo and CDs into it. From: https://github.com/stephenplusplus/dots/blob/master/.bash_profile
 function clone {
   local url=$1;
@@ -114,7 +119,7 @@ if [ -f ~/git-completion.bash ]; then
   . ~/git-completion.bash
 fi
 
-# Allows use with aliases(?)
+# Allows use with aliases(?) ...still doesn't work when not preceded by the word 'git'
 # Guide: https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
@@ -136,6 +141,7 @@ alias smart='cd ~/Documents/Projects/smartipants && subl .'
 alias whats='cd ~/Documents/Projects/whats-this-2.0 && subl .'
 alias bashp='cd ~/Documents/Projects/bash_profile && subl bash_profile'
 alias blog='cd ~/Documents/Projects/flamdoodle-blog && subl .'
+alias doc='cd ~/Documents'
 alias reload='source ~/.bash_profile'
 alias f='open -a Finder ./'                 # Opens current directory in MacOS Finder
 alias b='bundle install'
