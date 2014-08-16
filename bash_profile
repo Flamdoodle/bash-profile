@@ -58,6 +58,8 @@ alias gph='git checkout master && git push heroku master'
 alias gb='git branch'
 alias gpum='git pull origin master'
 alias gpuo='git pull origin'
+alias gf='git fetch'
+# Push to current branch
 function publish() {
   gbranch="`git branch &>/dev/null`"
   git push origin $gbranch
@@ -102,7 +104,7 @@ function clone {
 alias bp='subl ~/.bash_profile'
 
 # Opens .gitconfig
-alias gf='subl ~/.gitconfig'
+alias gconf='subl ~/.gitconfig'
 
 # Creates regenerating Jekyll server
 alias js='jekyll serve --watch'
