@@ -75,11 +75,19 @@ alias booms='be rake db:drop; be rake db:create && be rake db:migrate && rails s
 alias seeds='be rake db:drop; be rake db:create && be rake db:migrate && rake db:seed && rails s'
 
 # Some aliases for rails common commands
-alias s='rails server'
+function s() {
+  osascript -e 'tell application "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down' -e 'tell application "Terminal" to do script "openchromehost" in selected tab of the front window'
+  rails server
+}
 alias c='rails console'
 alias r='rake routes'
 
-# Clones a repo and CDs into it. From: https://github.com/stephenplusplus/dots/blob/master/.bash_profile
+# For use in function s()
+function openchromehost() {
+  sleep 3 && open -a "Google Chrome" "http://localhost:3000"
+}
+
+# Clones a repo, CDs into it, opens it in Sublime, and runs bundle. From: https://github.com/stephenplusplus/dots/blob/master/.bash_profile
 function clone {
   local url=$1;
   local repo=$2;
@@ -154,6 +162,17 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias ......='cd ../../../../../'
 alias .......='cd ../../../../../../'
+
+# Open github repo for most used projects
+alias smarthub='open https://github.com/reidcovington/smartipantsgame'
+alias whatshub='open https://github.com/girb0t/whats-this-2.0'
+alias bloghub='open https://github.com/Flamdoodle/Flamdoodle.github.io'
+alias bashhub='open https://github.com/Flamdoodle/bash-profile'
+
+# Open jasmine specs
+function jspec() {
+  open -a "Google Chrome" "http://localhost:3000/specs"
+}
 
 # Case insensitive tabbing
 bind "set completion-ignore-case on"
