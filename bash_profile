@@ -115,7 +115,16 @@ alias bp='subl ~/.bash_profile'
 alias gconf='subl ~/.gitconfig'
 
 # Creates regenerating Jekyll server
-alias js='jekyll serve --watch'
+function js() {
+  osascript -e 'tell application "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down' -e 'tell application "Terminal" to do script "openjekyllserver" in selected tab of the front window'
+  jekyll serve --watch
+}
+
+# Opens Chrome to Jekyll server.  Used in above alias.
+function openjekyllserver() {
+  sleep 4 && open -a "Google Chrome" "http://localhost:4000"
+  osascript -e 'tell application "System Events" to tell process "Terminal" to keystroke "w" using command down'
+}
 
 # Shows name (in cyan), current working directory (in green), current branch (in pink)
 PS1='\[\e[1;96m\]\u: \[\e[0;32m\]\W \[\033[00m\]$(git branch &>/dev/null; if [ $? -eq 0 ]; then echo "\[\e[0;35m\][$(git branch | grep ^*|sed s/\*\ //)] \[\033[00m\]"; fi)>> '
