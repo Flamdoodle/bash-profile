@@ -84,7 +84,7 @@ alias r='rake routes'
 
 # For use in function s()
 function openchromehost() {
-  sleep 3 && open -a "Google Chrome" "http://localhost:3000"
+  sleep 5 && open -a "Google Chrome" "http://localhost:3000"
 }
 
 # Clones a repo, CDs into it, opens it in Sublime, and runs bundle. From: https://github.com/stephenplusplus/dots/blob/master/.bash_profile
@@ -122,7 +122,7 @@ function js() {
 
 # Opens Chrome to Jekyll server.  Used in above alias.
 function openjekyllserver() {
-  sleep 4 && open -a "Google Chrome" "http://localhost:4000"
+  sleep 5 && open -a "Google Chrome" "http://localhost:4000"
   osascript -e 'tell application "System Events" to tell process "Terminal" to keystroke "w" using command down'
 }
 
@@ -154,7 +154,7 @@ function parse_git_branch() {
 
 # Some aliases for great purpose!
 alias desk='cd ~/Desktop'
-alias ls='ls -GFh'
+alias ls='ls -FGh'
 alias code='cd ~/Documents/Projects'
 alias smart='cd ~/Documents/Projects/smartipants && subl .'
 alias whats='cd ~/Documents/Projects/whats-this-2.0 && subl .'
@@ -186,3 +186,14 @@ function jspec() {
 # Case insensitive tabbing
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
+
+### USEFUL SHORTCUTS ###
+function gcal() {
+  open https://www.google.com/calendar/render
+}
+function gmap() {
+  open https://www.google.com/maps
+}
+function ghub() {
+  open https://www.github.com/flamdoodle
+}
