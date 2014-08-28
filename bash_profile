@@ -7,7 +7,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Look at http://alias.sh/ for more fun things like this
 
-# For rubby development
+# For ruby development
 which -s bundle && alias be="bundle exec"
 
 # Open github web page of current git repo ... broken again
@@ -171,6 +171,7 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias ......='cd ../../../../../'
 alias .......='cd ../../../../../../'
+alias c='clear'
 
 # Open github repo for most used projects
 alias smarthub='open https://github.com/reidcovington/smartipantsgame'
@@ -197,3 +198,22 @@ function gmap() {
 function ghub() {
   open https://www.github.com/flamdoodle
 }
+
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# cd's into the frontmost window in MacOS Finder
+function cdf () {
+        currFolderPath=$( /usr/bin/osascript <<EOT
+            tell application "Finder"
+                try
+            set currFolder to (folder of the front window as alias)
+                on error
+            set currFolder to (path to desktop folder as alias)
+                end try
+                POSIX path of currFolder
+            end tell
+EOT
+        )
+        echo "cd to \"$currFolderPath\""
+        cd "$currFolderPath"
+    }
