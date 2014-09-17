@@ -71,8 +71,8 @@ alias gpud='git pull origin development'
 # Some tests with database commands in development
 alias boom='be rake db:drop; be rake db:create && be rake db:migrate'
 alias seed='be rake db:drop; be rake db:create && be rake db:migrate && rake db:seed'
-alias booms='be rake db:drop; be rake db:create && be rake db:migrate && rails s'
-alias seeds='be rake db:drop; be rake db:create && be rake db:migrate && rake db:seed && rails s'
+alias booms='be rake db:drop; be rake db:create && be rake db:migrate && s'
+alias seeds='be rake db:drop; be rake db:create && be rake db:migrate && rake db:seed && s'
 
 # Some aliases for rails common commands
 function s() {
@@ -84,7 +84,7 @@ alias r='rake routes'
 
 # For use in function s()
 function openchromehost() {
-  sleep 5 && open -a "Google Chrome" "http://localhost:3000"
+  sleep 6 && open -a "Google Chrome" "http://localhost:3000"
 }
 
 # Clones a repo, CDs into it, opens it in Sublime, and runs bundle. From: https://github.com/stephenplusplus/dots/blob/master/.bash_profile
@@ -122,7 +122,7 @@ function js() {
 
 # Opens Chrome to Jekyll server.  Used in above alias.
 function openjekyllserver() {
-  sleep 5 && open -a "Google Chrome" "http://localhost:4000"
+  sleep 6 && open -a "Google Chrome" "http://localhost:4000"
   osascript -e 'tell application "System Events" to tell process "Terminal" to keystroke "w" using command down'
 }
 
@@ -161,6 +161,7 @@ alias whats='cd ~/Documents/Projects/whats-this-2.0 && subl .'
 alias bashp='cd ~/Documents/Projects/bash_profile && subl bash_profile'
 alias blog='cd ~/Documents/Projects/flamdoodle-blog && subl .'
 alias doc='cd ~/Documents'
+alias ship='cd ~/Documents/Projects/shipstr && subl .'
 alias reload='source ~/.bash_profile'
 alias f='open -a Finder ./'                 # Opens current directory in MacOS Finder
 alias b='bundle install'
@@ -176,6 +177,7 @@ alias c='clear'
 # Open github repo for most used projects
 alias smarthub='open https://github.com/reidcovington/smartipantsgame'
 alias whatshub='open https://github.com/girb0t/whats-this-2.0'
+alias shiphub='open https://github.com/mediaspork/shipstr'
 alias bloghub='open https://github.com/Flamdoodle/Flamdoodle.github.io'
 alias bashhub='open https://github.com/Flamdoodle/bash-profile'
 
@@ -198,7 +200,21 @@ function gmap() {
 function ghub() {
   open https://www.github.com/flamdoodle
 }
-
+function feedback() {
+  open http://feedbc.herokuapp.com
+}
+function peeps() {
+  open http://www.github.com/spring-peepers-2014
+}
+function judge() {
+  open http://apps.magicjudges.org/
+}
+function drive() {
+  open https://drive.google.com/#my-drive
+}
+function cube() {
+  open http://cubetutor.com/viewcube/2039
+}
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # cd's into the frontmost window in MacOS Finder
@@ -216,4 +232,14 @@ EOT
         )
         echo "cd to \"$currFolderPath\""
         cd "$currFolderPath"
-    }
+}
+
+# Opens my resume in Open Office
+function resume() {
+  open "/Users/Stephen/Dropbox/Resume/Current Resume.odt"
+}
+
+# Opens test coverage (for projects with SimpleCov) in Chrome
+function coverage() {
+  open -a "Google Chrome" "coverage"
+}
